@@ -1,11 +1,16 @@
-﻿@page
+@page
 @model DeleteModel
 
-<h2>Delete Product</h2>
+<div class="alert alert-danger text-center mt-5">
+    <h4>⚠ Confirm Delete</h4>
+    <p>
+        Are you sure you want to delete
+        <strong>@Model.Product.Name</strong>?
+    </p>
 
-<p>Are you sure you want to delete @Model.Product.Name?</p>
-
-<form method="post">
-    <input type="hidden" asp-for="Product.Id" />
-    <button type="submit">Delete</button>
-</form>
+    <form method="post">
+        <input type="hidden" asp-for="Product.Id" />
+        <button type="submit" class="btn btn-danger">Yes, Delete</button>
+        <a asp-page="/Index" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
