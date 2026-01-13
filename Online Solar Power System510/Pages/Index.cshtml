@@ -1,34 +1,33 @@
-﻿@page
+@page
 @model IndexModel
 
-<h2 style="text-align:center;">Solar Products</h2>
+<h2 class="text-center my-4">☀ Solar Products</h2>
 
-<div style="width:60%; margin:auto;">
+<div class="d-flex justify-content-end mb-3">
+    <a asp-page="/Insert" class="btn btn-success">
+        ➕ Add New Product
+    </a>
+</div>
 
-    <div style="text-align:right; margin-bottom:10px;">
-        <a href="/Insert">
-            <button style="padding:8px 15px;">Add New Product</button>
-        </a>
-    </div>
-
-    <table border="1" width="100%" cellpadding="8" style="border-collapse:collapse; text-align:center;">
-        <tr style="background-color:#f2f2f2;">
+<table class="table table-bordered table-hover text-center">
+    <thead class="table-dark">
+        <tr>
             <th>Name</th>
-            <th>Price</th>
+            <th>Price ($)</th>
             <th>Actions</th>
         </tr>
-
+    </thead>
+    <tbody>
         @foreach (var item in Model.Products)
         {
             <tr>
                 <td>@item.Name</td>
                 <td>@item.Price</td>
                 <td>
-                    <a href="/Update?id=@item.Id">Edit</a> |
-                    <a href="/Delete?id=@item.Id">Delete</a>
+                    <a asp-page="/Update" asp-route-id="@item.Id" class="btn btn-primary btn-sm">Edit</a>
+                    <a asp-page="/Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Delete</a>
                 </td>
             </tr>
         }
-    </table>
-
-</div>
+    </tbody>
+</table>
