@@ -1,0 +1,27 @@
+﻿@page
+@model UpdateModel
+
+<h2 style="text-align:center;">Edit Product</h2>
+
+<div style="width:40%; margin:auto; border:1px solid #ccc; padding:20px;">
+
+    <form method="post">
+
+        <input type="hidden" asp-for="Product.Id" />
+
+        <label>Name</label><br />
+        <input asp-for="Product.Name" style="width:100%; padding:6px;" /><br /><br />
+
+        <label>Price</label><br />
+        <input asp-for="Product.Price" style="width:100%; padding:6px;" /><br /><br />
+
+        <label>Description</label><br />
+        <input asp-for="Product.Description" style="width:100%; padding:6px;" /><br /><br />
+
+        <div style="text-align:center;">
+            <button type="submit" style="padding:8px 20px;">Update</button>
+        </div>
+
+    </form>
+
+</div>
